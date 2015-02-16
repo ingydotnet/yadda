@@ -1,0 +1,98 @@
+Yadda
+=====
+
+Yadda Ain't Data; Don't Argue
+
+Yadda is a software configuration language. It is quite similar to the popular
+YAML serialization language, but is geared specifically at configuration.
+
+== Overview
+
+Yadda is simpler YAML for config files. People who use YAML for config, usually
+love it and hate it. Yadda tries to increase the love and decrease the hate.
+
+  yadda: 1.0
+  love: ++
+  hate: --
+
+== The Problem
+
+YAML is a *data serialization language*. It was designed for 3 major purposes:
+
+* Roundtrip data serialization of any in memory data structure.
+* Cross programming language data transport.
+* Human friendliness; especially for writing/editing.
+
+It was also designed to do well in streaming applications and other areas of
+data manipulation and consumption. Although YAML is used in many many ways (as
+was intended) it is most popular as a simple config file format.
+
+The YAML spec is quite huge due the amount of concerns it wants to cover. This
+makes YAML parsers quite difficult to implement (and parsing is only one part
+of the YAML processing stack).
+
+The result is that YAML implementations are usually buggy and incompatible,
+often in subtle ways.
+
+== The Solution
+
+The parts of YAML that are used for config, can be expressed much more simply.
+
+This is Yadda.
+
+== Yadda Design Goals
+
+- Human Written; Machine Read
+
+  Yadda files are intended to be created and maintained by people. Yadda
+  inplementations have no *dumper* component (internal data to text). The API
+  only has a *load* function (text to internal data).
+
+- JSON Data Model
+
+  Yadda text represents a single node consisting of these structures:
+
+  * Mapping (Hash, Dict)
+  * Sequence (Array, List)
+  * Scalar (String, Number, Boolean or Null)
+
+- YAML Compatible
+
+  Yadda tries to be a subset of YAML, but also adds a few new features that
+  might become part of YAML 2.0. If a Yadda stream is parsed successfully by a
+  YAML processor it should load as the same data structure. The new features of
+  Yadda, should be syntax errors in YAML.
+
+== Yadda Deployment
+
+Yadda is going to try a new way to make perfectly compatible implementations
+across all programming languages. It will use the same grammar, codebase and
+test suite for all.
+
+- Pegex
+
+  Pegex is a parser framework that only requires a regex engine. It allows the
+  same grammar to define a syntax across all the Pegex supporting languages.
+
+- TestML
+
+  TestML is a language agnostic, data driven test framework.
+
+Writing a spec and then having people try to make perfectly compatible software
+from that has never worked. Comprehensive test suites help, but still fall
+short.
+
+== See Also
+
+* "Yadda Specification"[yadda-spec]
+* "Yadda To Do List"[yadda-todo]
+* "Yadda Implementors Guide"[yadda-dev]
+* "Yadda Q / A"[yadda-qa]
+
+== Author
+
+Ingy döt Net is the creator of Yadda.
+
+Ingy designed YAML with Clark Evans and Oren Ben-Kiki starting in 2001. YAML
+development is ongoing, but hasn't really moved much since 2005. This is a
+testament to it being good enough to get things done.

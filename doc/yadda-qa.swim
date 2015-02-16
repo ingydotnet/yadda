@@ -1,0 +1,51 @@
+= Yadda Questions and Answers
+
+Q) What does Yadda stand for?
+
+A) Still working on it. Ideas Welcome. Here are some lame bacromyns:
+
+* Yadda Ain't Data. Don't Argue.
+* Yet Another Data Driven Alternative
+
+
+
+Q) Is Yadda a good name for a human friendly config language?
+
+A) Yes!
+
+
+
+Q) Are there plans to make Yadda have a write/dump API?
+
+A) No. Yadda is targeted squarely at human friendly config files. Use YAML or
+JSON for inter-program data transmission.
+
+
+
+Q) Is Yadda a subset of YAML?
+
+A) No. It's close but not quite. It may end up being a subset of YAML 2.0.
+
+
+
+Q) How deep can a Yadda node nest?
+
+A) Unlimited. Like YAML.
+
+
+
+Q) What data structures can be represented in Yadda?
+
+A) Same as JSON (except top level single scalar).
+
+
+
+Q) What is the proper extension for Yadda files?
+
+A) The following file extensions can be used:
+
+- `.yadda` :: Preferred and encouraged. Use it!
+
+- `.yada` :: If 5 chars is too long. Is 5 really too long?
+
+- `.yda` :: If you really must use 3. Must you?
