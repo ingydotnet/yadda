@@ -1,0 +1,29 @@
+=meta: 0.0.2
+
+name: Yadda
+version: 0.0.1
+abstract: Yadda Ain't Data; Don't Argue
+homepage: http://yadda.org
+language: acmeist
+license: MIT
+copyright: 2015
+
+author:
+  name: Ingy döt Net
+  email: ingy@ingy.net
+  homepage: http://ingy.net
+  github: ingydotnet
+  twitter: ingydotnet
+  freenode: ingy
+
+devel:
+  git: https://github.com/ingydotnet/yadda
+  bug: https://github.com/ingydotnet/yadda/issues
+  irc: irc.freenode.net#pegex
+
+=perl:
+  requires:
+    perl: 5.8.1
+  test:
+    requires:
+      JSON: 0
