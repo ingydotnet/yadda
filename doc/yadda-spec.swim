@@ -89,35 +89,42 @@ In Yadda this is:
     text here
     is folded.
 
-There is no ending `'`. The indentation ends the scalar.
+There is no ending `'`. The indentation ends the scalar. Yadda actually does
+not include a newline here by default, so the JSON value would be:
+
+  {"folded": "text here is folded"}
 
 The scalar uses single quoting semantics (except there is no need to escape
 single quotes). Using `"` instead gives double quoting semantics.
 
 If the final newline is not wanted, YAML would:
 
-  folded: >
+  folded: >-
     text here
     is folded.
 
-Yadda does:
+Yadda does this to add the final newline:
 
   folded: '
     text here
-    is folded.'
+    is folded.
+    ~
 
-Some edge cases. Scalar ends with a `'` (and no newline):
+The tilde (`~`) is like a closing quote, but it works for all the multi-line
+scalars with non-default endings.
 
-  folded: '
-    text here
-    is folded.''
-
-Scalar ends with a `'` (and a newline):
+Some edge cases. Scalar ends with a `~` (and no newline):
 
   folded: '
     text here
-    is folded.'
-    '
+    is folded.~~
+
+Scalar ends with a `~` (and a newline):
+
+  folded: '
+    text here
+    is folded.~
+    ~
 
 Scalar ends with 2 newlines:
 
@@ -125,7 +132,7 @@ Scalar ends with 2 newlines:
     text here
     is folded.
 
-    '
+    ~
 
 Note that the previous example is valid YAML with a slightly different
 semantic. That is consider OK and for both Yadda and YAML 2.0 because nobody
@@ -166,7 +173,7 @@ becomes this Yadda:
   hill: '''
         /\
        /  \
-    '''
+    ~
 
 The (usually optionial) trailing `'''` determines the indentation.
 
@@ -181,9 +188,9 @@ becomes this Yadda:
   hill:
     '''
         /\
-       /  \'''
+       /  \~
 
-Leading `'''` marks indentation, trailing `'''` marks non-default ending.
+Leading `'''` marks indentation, trailing `~` marks non-default ending.
 
 == Yadda Allows Single Line `[]`
 
