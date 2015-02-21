@@ -108,23 +108,23 @@ Yadda does this to add the final newline:
   folded: '
     text here
     is folded.
-    ~
+    |
 
-The tilde (`~`) is like a closing quote, but it works for all the multi-line
+The tilde (`|`) is like a closing quote, but it works for all the multi-line
 scalars with non-default endings.
 
-Some edge cases. Scalar ends with a `~` (and no newline):
+Some edge cases. Scalar ends with a `|` (and no newline):
 
   folded: '
     text here
-    is folded.~~
+    is folded.||
 
-Scalar ends with a `~` (and a newline):
+Scalar ends with a `|` (and a newline):
 
   folded: '
     text here
-    is folded.~
-    ~
+    is folded.|
+    |
 
 Scalar ends with 2 newlines:
 
@@ -132,7 +132,7 @@ Scalar ends with 2 newlines:
     text here
     is folded.
 
-    ~
+    |
 
 Note that the previous example is valid YAML with a slightly different
 semantic. That is consider OK and for both Yadda and YAML 2.0 because nobody
@@ -173,7 +173,7 @@ becomes this Yadda:
   hill: '''
         /\
        /  \
-    ~
+    |
 
 The (usually optionial) trailing `'''` determines the indentation.
 
@@ -188,9 +188,9 @@ becomes this Yadda:
   hill:
     '''
         /\
-       /  \~
+       /  \|
 
-Leading `'''` marks indentation, trailing `~` marks non-default ending.
+Leading `'''` marks indentation, trailing `|` marks non-default ending.
 
 == Yadda Allows Single Line `[]`
 
